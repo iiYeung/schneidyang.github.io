@@ -96,17 +96,17 @@
 
 
 
-  <meta name="description" content="#自动配置 ###一、覆盖SpringBoot的自动配置添加Security:  1compile(&amp;quot;org.springfarmework.boot:spring-boot-starter-security&amp;quot;)  重新启动-&amp;gt;在对话框里输入用户名:user,密码在日志中查找 123456789101112131415161718192021222324252627usi">
+  <meta name="description" content="自动配置一、覆盖SpringBoot的自动配置添加Security:  1compile(&amp;quot;org.springfarmework.boot:spring-boot-starter-security&amp;quot;)  重新启动-&amp;gt;在对话框里输入用户名:user,密码在日志中查找 1using default security password：xxxxxxxxxxxxxxxx  LD">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SpringBoot读书笔记-第三节">
 <meta property="og:url" content="https://github.com/schneidyang/schneidyang.github.io/2019/01/11/SpringBoot读书笔记-第三节/index.html">
 <meta property="og:site_name" content="Schneid&#39;s Blog">
-<meta property="og:description" content="#自动配置 ###一、覆盖SpringBoot的自动配置添加Security:  1compile(&amp;quot;org.springfarmework.boot:spring-boot-starter-security&amp;quot;)  重新启动-&amp;gt;在对话框里输入用户名:user,密码在日志中查找 123456789101112131415161718192021222324252627usi">
+<meta property="og:description" content="自动配置一、覆盖SpringBoot的自动配置添加Security:  1compile(&amp;quot;org.springfarmework.boot:spring-boot-starter-security&amp;quot;)  重新启动-&amp;gt;在对话框里输入用户名:user,密码在日志中查找 1using default security password：xxxxxxxxxxxxxxxx  LD">
 <meta property="og:locale" content="cn">
-<meta property="og:updated_time" content="2019-01-11T02:14:03.864Z">
+<meta property="og:updated_time" content="2019-01-11T02:22:31.280Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SpringBoot读书笔记-第三节">
-<meta name="twitter:description" content="#自动配置 ###一、覆盖SpringBoot的自动配置添加Security:  1compile(&amp;quot;org.springfarmework.boot:spring-boot-starter-security&amp;quot;)  重新启动-&amp;gt;在对话框里输入用户名:user,密码在日志中查找 123456789101112131415161718192021222324252627usi">
+<meta name="twitter:description" content="自动配置一、覆盖SpringBoot的自动配置添加Security:  1compile(&amp;quot;org.springfarmework.boot:spring-boot-starter-security&amp;quot;)  重新启动-&amp;gt;在对话框里输入用户名:user,密码在日志中查找 1using default security password：xxxxxxxxxxxxxxxx  LD">
 
 
 
@@ -331,7 +331,7 @@
                 
               
 
-              <time title="Post created: 2019-01-11 09:53:47 / Updated at: 10:14:03" itemprop="dateCreated datePublished" datetime="2019-01-11T09:53:47+08:00">2019-01-11</time>
+              <time title="Post created: 2019-01-11 09:53:47 / Updated at: 10:22:31" itemprop="dateCreated datePublished" datetime="2019-01-11T09:53:47+08:00">2019-01-11</time>
             
 
             
@@ -369,12 +369,14 @@
       
 
       
-        <p>#自动配置</p>
-<p>###一、覆盖SpringBoot的自动配置<br>添加Security:<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">compile(&quot;org.springfarmework.boot:spring-boot-starter-security&quot;)</span><br></pre></td></tr></table></figure></p>
-<p> 重新启动-&gt;在对话框里输入用户名:user,密码在日志中查找<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">using default security password：xxxxxxxxxxxxxxxx</span><br><span class="line">```  </span><br><span class="line">LDAP（Lightweight Directory Access Protocol）  </span><br><span class="line">加载原则：  </span><br><span class="line">Springboot的设计是加载应用级配置，随后再考虑自动配置类。比如已经配置了一个jdbcTemplateBean，那么在执行自动配置是就已经存在一个jdbcTemplate类型的Bean了，于是忽略默认的自动配置jdbcTemplateBean。  </span><br><span class="line">###二、通过文件属性外置配置，按优先级排序</span><br><span class="line">SpringBoot应用程序有多种设置途径，如：  </span><br><span class="line">1.命令行参数  </span><br><span class="line">2.java：comp/env里的JNDI属性  </span><br><span class="line">3.JVM系统属性  </span><br><span class="line">4.操作系统环境变量  </span><br><span class="line">5.随机生成的带random.*前缀的属性(在设置其他属性时，可以引用他们，比如$&#123;random.long&#125;)  </span><br><span class="line">6.应用程序以外的application.properties或者application.yml文件  </span><br><span class="line">7.打包在应用程序内的application.properties或者application.yml文件  </span><br><span class="line">8.通过@PropertySource标注的属性  </span><br><span class="line">9.默认属性  </span><br><span class="line">其中：application.properties和application.yml能放在以下四个位置，按优先级排序  </span><br><span class="line">1.外置。在相对于应用程序运行目录的/config子目录里  </span><br><span class="line">2.外置。在应用程序运行的目录里  </span><br><span class="line">3.内置。在config包内  </span><br><span class="line">4.内置。在Classpath根目录  </span><br><span class="line">注意:在同一优先级位置有application.properties和application.yml两个文件时，那么application.yml的属性会覆盖application.properties。</span><br><span class="line">###三、自动配置微调</span><br><span class="line">例子1：Thymelea模板是默认缓存的，除非重启应用程序，否则修改不会生效。  </span><br><span class="line">将spring.thymelea.cache设置为false就能禁用模板缓存。  </span><br><span class="line">a.命令：java -jar readinglist-0.0.1-SNAPSHOT.jar --spring.thymeleaf.cache=false  </span><br><span class="line">b.或者在application.yml中配置：</span><br></pre></td></tr></table></figure></p>
-<p> spring:<br>    thymeleaf:<br>      cache: false<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">c.或者通过环境变量来禁用Thymeleaf缓存：</span><br><span class="line">命令：</span><br></pre></td></tr></table></figure></p>
-<p> export spring_thymeleaf_cache=false<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">例子2：设置Tomcat的监听端口  </span><br><span class="line">a.命令：java -jar xxx.jar -server.port=8080  </span><br><span class="line">b.在application.yml中配置</span><br></pre></td></tr></table></figure></p>
-<p>server:<br>    port: 8080<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">例子3：设置服务器提供https服务，</span><br><span class="line">第一步用jdk的keytool工具创建一个密钥存储：</span><br><span class="line">命令：</span><br><span class="line">```angular2</span><br><span class="line">keytool -keystore mykey.jks -genkey -alias tomcat -keyalg RSA</span><br></pre></td></tr></table></figure></p>
+        <h1 id="自动配置"><a href="#自动配置" class="headerlink" title="自动配置"></a>自动配置</h1><h3 id="一、覆盖SpringBoot的自动配置"><a href="#一、覆盖SpringBoot的自动配置" class="headerlink" title="一、覆盖SpringBoot的自动配置"></a>一、覆盖SpringBoot的自动配置</h3><p>添加Security:<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">compile(&quot;org.springfarmework.boot:spring-boot-starter-security&quot;)</span><br></pre></td></tr></table></figure></p>
+<p> 重新启动-&gt;在对话框里输入用户名:user,密码在日志中查找<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">using default security password：xxxxxxxxxxxxxxxx</span><br></pre></td></tr></table></figure></p>
+<p> LDAP（Lightweight Directory Access Protocol）<br> 加载原则：<br> Springboot的设计是加载应用级配置，随后再考虑自动配置类。比如已经配置了一个jdbcTemplateBean，那么在执行自动配置是就已经存在一个jdbcTemplate类型的Bean了，于是忽略默认的自动配置jdbcTemplateBean。  </p>
+<h3 id="二、通过文件属性外置配置，按优先级排序"><a href="#二、通过文件属性外置配置，按优先级排序" class="headerlink" title="二、通过文件属性外置配置，按优先级排序"></a>二、通过文件属性外置配置，按优先级排序</h3><p> SpringBoot应用程序有多种设置途径，如：<br> 1.命令行参数<br> 2.java：comp/env里的JNDI属性<br> 3.JVM系统属性<br> 4.操作系统环境变量<br> 5.随机生成的带random.*前缀的属性(在设置其他属性时，可以引用他们，比如${random.long})<br> 6.应用程序以外的application.properties或者application.yml文件<br> 7.打包在应用程序内的application.properties或者application.yml文件<br> 8.通过@PropertySource标注的属性<br> 9.默认属性<br> 其中：application.properties和application.yml能放在以下四个位置，按优先级排序<br> 1.外置。在相对于应用程序运行目录的/config子目录里<br> 2.外置。在应用程序运行的目录里<br> 3.内置。在config包内<br> 4.内置。在Classpath根目录<br> 注意:在同一优先级位置有application.properties和application.yml两个文件时，那么application.yml的属性会覆盖application.properties。</p>
+<h3 id="三、自动配置微调"><a href="#三、自动配置微调" class="headerlink" title="三、自动配置微调"></a>三、自动配置微调</h3><p> 例子1：Thymelea模板是默认缓存的，除非重启应用程序，否则修改不会生效。<br> 将spring.thymelea.cache设置为false就能禁用模板缓存。<br> a.命令：java -jar readinglist-0.0.1-SNAPSHOT.jar –spring.thymeleaf.cache=false<br> b.或者在application.yml中配置：<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">spring:</span><br><span class="line">   thymeleaf:</span><br><span class="line">     cache: false</span><br></pre></td></tr></table></figure></p>
+<p> c.或者通过环境变量来禁用Thymeleaf缓存：<br> 命令：<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export spring_thymeleaf_cache=false</span><br></pre></td></tr></table></figure></p>
+<p>例子2：设置Tomcat的监听端口<br>a.命令：java -jar xxx.jar -server.port=8080<br>b.在application.yml中配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">server:</span><br><span class="line">	port: 8080</span><br></pre></td></tr></table></figure></p>
+<p>例子3：设置服务器提供https服务，<br>第一步用jdk的keytool工具创建一个密钥存储：<br>命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">keytool -keystore mykey.jks -genkey -alias tomcat -keyalg RSA</span><br></pre></td></tr></table></figure></p>
 <p>根据提示设置，其他都无关紧要，主要记住密码的设置<br>然后在application.yml中配置：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">server:</span><br><span class="line">      port:8080</span><br><span class="line">      ssl: </span><br><span class="line">        key-store: file://path/to/mykey.jks</span><br><span class="line">        key-store-password:123456</span><br><span class="line">        key-password:123456</span><br></pre></td></tr></table></figure></p>
 <p>例子4：日志配置<br>SpringBoot默认用logback来记录日志，并用info级别输出到控制台<br>如果要切换日志实现，首先排除起步依赖中的默认日志依赖，然后再引入想要切换的日志实现的依赖。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">logging:</span><br><span class="line">	level:</span><br><span class="line">		root: WARN</span><br><span class="line">		org.springframework.security: DEBUG</span><br></pre></td></tr></table></figure></p>
 <p>上面为分包设置不同的日志级别。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">logging:</span><br><span class="line">	path: /var/logs/</span><br><span class="line">	file: BookWorm.log</span><br><span class="line">	level: </span><br><span class="line">		root:	WARN</span><br><span class="line">		org.springfarmework.security:DEBUG</span><br></pre></td></tr></table></figure></p>
@@ -382,10 +384,10 @@
 <p>不想使用默认的logback.xml作为配置，可以使用上面的配置<br>例子5：配置数据源<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">spring:</span><br><span class="line">	datasource:</span><br><span class="line">		url:jdbc:mysql://xxcxxcc</span><br><span class="line">		username:</span><br><span class="line">		password:</span><br><span class="line">		driver-class-name:com.mysql.jdbc.Driver	//驱动</span><br></pre></td></tr></table></figure></p>
 <p>DatasourceBean是一个连接池，如果Classpath里有Tomcat的连接池DataSource，那么就会使用这个连接池，否则SpringBoot会在Classpath中查找以下连接池：<br><code>HikariCP、Commons DBCP、Commons DBCP2</code><br>或者从<code>JNDI</code>里查找DataSource：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">spring：</span><br><span class="line">	dataSource:</span><br><span class="line">	jndi-name: java:/comp/env/jdbc/readlingListDS</span><br></pre></td></tr></table></figure></p>
 <p>注意：一旦设置了jndi-name，那么其他数据源连接属性都会被忽略。<br>例子6：应用程序Bean的配置外置<br>在Bean上添加注解@ConfigurationProperties,并在application.properties或application.yml中配置</p>
-<p>###四、使用Profile进行配置<br>法1：可以在Bean上添加@Profile注解激活特定的配置文件。<br>法2：可以在SpringBoot程序运行时<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -jar xxxx.jar spring.profile.active=[filename]</span><br></pre></td></tr></table></figure></p>
+<h3 id="四、使用Profile进行配置"><a href="#四、使用Profile进行配置" class="headerlink" title="四、使用Profile进行配置"></a>四、使用Profile进行配置</h3><p>法1：可以在Bean上添加@Profile注解激活特定的配置文件。<br>法2：可以在SpringBoot程序运行时<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -jar xxxx.jar spring.profile.active=[filename]</span><br></pre></td></tr></table></figure></p>
 <p>法3:可以在application.yml或者application.properties中配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sprig:</span><br><span class="line">	profiles:</span><br><span class="line">		avtive:xxxx</span><br></pre></td></tr></table></figure></p>
 <p>该配置说明SpringBoot程序正在应用appliaction-xxxx.yml的配置文件</p>
-<p>###五、定制应用程序错误页面<br>定义一个error.html文件放在src/main/resources/templates路径下</p>
+<h3 id="五、定制应用程序错误页面"><a href="#五、定制应用程序错误页面" class="headerlink" title="五、定制应用程序错误页面"></a>五、定制应用程序错误页面</h3><p>定义一个error.html文件放在src/main/resources/templates路径下</p>
 
       
     </div>
@@ -469,8 +471,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Übersicht
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -527,6 +538,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#自动配置"><span class="nav-number">1.</span> <span class="nav-text">自动配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、覆盖SpringBoot的自动配置"><span class="nav-number">1.0.1.</span> <span class="nav-text">一、覆盖SpringBoot的自动配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、通过文件属性外置配置，按优先级排序"><span class="nav-number">1.0.2.</span> <span class="nav-text">二、通过文件属性外置配置，按优先级排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、自动配置微调"><span class="nav-number">1.0.3.</span> <span class="nav-text">三、自动配置微调</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、使用Profile进行配置"><span class="nav-number">1.0.4.</span> <span class="nav-text">四、使用Profile进行配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五、定制应用程序错误页面"><span class="nav-number">1.0.5.</span> <span class="nav-text">五、定制应用程序错误页面</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
